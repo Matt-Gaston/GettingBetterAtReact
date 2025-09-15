@@ -1,0 +1,26 @@
+main {
+    padding: 40px 30px;
+    background-image: url(/src/assets/react-logo.png);
+    background-repeat: no-repeat;
+    background-position-x: right -250px;
+    background-position-y: center;
+}
+
+main > h1 {
+    margin: 0;
+    font-size: 2.4rem;
+}
+
+.factslist {
+    padding-left: 60px;
+}
+
+.factslist > li {
+    padding-block: 10px;
+}
+
+.factslist > li::marker {
+    color: rgba(97, 218, 251, 1);
+    font-size: 1.5rem;
+}
+

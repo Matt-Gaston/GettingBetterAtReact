@@ -1,3 +1,5 @@
+import './MainContent.css';
+
 function MainContent() {
     return(
         <main>
