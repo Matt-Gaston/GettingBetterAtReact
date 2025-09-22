@@ -5,7 +5,8 @@ import EntryData from '/src/assets/data.js';
 
 function App() {
     const EntryArray = EntryData.map((entry) => 
-        <Entry 
+        <Entry
+            key={entry.id}
             img={entry.img} 
             title={entry.title} 
             country={entry.country} 
