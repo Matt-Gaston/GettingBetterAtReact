@@ -7,13 +7,8 @@ import EntryData from './assets/data';
 function App() {
     const EntryArray = EntryData.map((entry: EntryProps) => 
         <Entry
-            key={entry.key}
-            img={entry.img} 
-            title={entry.title} 
-            country={entry.country} 
-            googleMapsLink={entry.googleMapsLink} 
-            dates={entry.dates} 
-            text={entry.text}
+            key={entry.title}
+            {...entry}
         />
     )
     return (

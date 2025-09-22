@@ -1,7 +1,6 @@
 import "./Entry.css"
 
 export interface EntryProps {
-    key: number;
     img: {src: string, alt:string};
     title: string;
     country: string;
