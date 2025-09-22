@@ -1,16 +1,17 @@
 import HeaderBar from "./components/HeaderBar/HeaderBar";
 import Entry from "./components/Entry/Entry";
 import './App.css';
-import EntryData from '/src/assets/data.js';
+import type { EntryProps } from "./components/Entry/Entry";
+import EntryData from './assets/data';
 
 function App() {
-    const EntryArray = EntryData.map((entry) => 
+    const EntryArray = EntryData.map((entry: EntryProps) => 
         <Entry
-            key={entry.id}
+            key={entry.key}
             img={entry.img} 
             title={entry.title} 
             country={entry.country} 
-            gmapslink={entry.googleMapsLink} 
+            googleMapsLink={entry.googleMapsLink} 
             dates={entry.dates} 
             text={entry.text}
         />

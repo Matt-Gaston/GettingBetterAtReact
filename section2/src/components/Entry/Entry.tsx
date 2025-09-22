@@ -1,11 +1,12 @@
 import "./Entry.css"
 
-interface EntryProps {
+export interface EntryProps {
+    key: number;
     img: {src: string, alt:string};
     title: string;
     country: string;
     dates: string;
-    gmapslink: string;
+    googleMapsLink: string;
     text: string;
 }
 
@@ -19,7 +20,7 @@ function Entry (props: EntryProps) {
             <div>
                 <img className="marker" src="/src/assets/marker.png" alt="Marker Icon"/>
                 <span>{props.country}</span>
-                <a href={props.gmapslink}>View on Google Maps</a>
+                <a href={props.googleMapsLink}>View on Google Maps</a>
                 <h2>{props.title}</h2>
                 <p className="dates">{props.dates}</p>
                 <p className="entry-text">{props.text}</p>

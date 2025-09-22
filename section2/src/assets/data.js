@@ -1,6 +1,6 @@
 export default [
     {
-        id: 1,
+        key: 1,
         img: {
             src: "https://scrimba.com/links/travel-journal-japan-image-url",
             alt: "Mount Fuji"
@@ -12,7 +12,7 @@ export default [
         text: "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists."
     },
     {
-        id: 2,
+        key: 2,
         img: {
             src: "https://scrimba.com/links/travel-journal-australia-image-url",
             alt: "Sydney Opera House"
@@ -24,7 +24,7 @@ export default [
         text: "The Sydney Opera House is a multi-venue performing arts centre in Sydney. Located on the banks of the Sydney Harbour, it is often regarded as one of the 20th century's most famous and distinctive buildings."
     },
     {
-        id: 3,
+        key: 3,
         img: {
             src: "https://scrimba.com/links/travel-journal-norway-image-url",
             alt: "Geirangerfjord"
