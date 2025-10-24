@@ -1,11 +1,12 @@
 import "./App.css";
 import Dice from "./Dice/Dice.tsx";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Confetii from "react-confetti";
 
 function App() {
 
+    const newGameRef = useRef<HTMLButtonElement>(null);
     const [dieValues, setDieValues] = useState(() => generateAllnewDice())
     const diceElements = dieValues.map(
                     (val) => <Dice 
@@ -17,6 +18,12 @@ function App() {
                 )
     const gameWon = (dieValues.every((die) => die.isHeld) && 
                     dieValues.every((die) => die.value === dieValues[0].value))
+
+    useEffect(() => {
+        if (gameWon) {
+            newGameRef.current!.focus()
+        }
+    }, [gameWon])
 
     function generateAllnewDice() {
         return Array(10)
@@ -71,7 +78,7 @@ function App() {
             <div className="dieContainer">
                 {diceElements}
             </div>
-            <button className="roll-dice-btn" onClick={rerollDice}>{gameWon ? "New Game" : "Roll"}</button>
+            <button ref={newGameRef} className="roll-dice-btn" onClick={rerollDice}>{gameWon ? "New Game" : "Roll"}</button>
         </main>
     )
 }

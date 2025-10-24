@@ -12,7 +12,11 @@ function Dice(props: DiceProps) {
     }
 
     return (
-        <button onClick={props.holdFunc} style={styles}>{props.value}</button>
+        <button
+            onClick={props.holdFunc}
+            style={styles}
+            aria-label={`Die with value ${props.value}, and ${props.isHeld ? "is" : "is not"} held.`}
+        >{props.value}</button>
     )
 }
 
