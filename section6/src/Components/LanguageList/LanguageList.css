@@ -6,8 +6,27 @@
     justify-content: center;
 }
 
-.language-list-con > * {
+.language-list-con > span {
     margin: 2px;
     padding: 5px;
     border-radius: 5px;
+    position:relative
+}
+
+span.lost::before {
+    content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b28285b;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top:0;
+    left:0;
+}
+
+span.lost {
+    text-decoration: line-through;
 }

@@ -1,6 +1,13 @@
+import clsx from "clsx";
 import "./StatusBar.css";
 
-function StatusBar() {
+
+interface StatusBarProps{
+    gameWon: boolean,
+    gameOver: boolean
+}
+
+function StatusBar(props: StatusBarProps) {
     const winMessage = <>
                             <h2>You win!</h2>
                             <p>Well done 🎉</p>
@@ -11,8 +18,17 @@ function StatusBar() {
                             <p>You lose! Better start learning Assembly 😢</p>
                         </>
     return(
-        <section className="status-message-con">
-            {winMessage}
+        <section className={clsx(
+            "status-message-con",
+            props.gameWon && "game-won",
+            props.gameOver && "game-lost"
+        )}>
+            {props.gameWon ? 
+                winMessage : 
+                props.gameOver ? 
+                    loseMessage :
+                    null 
+            }
         </section>
     )
 }
