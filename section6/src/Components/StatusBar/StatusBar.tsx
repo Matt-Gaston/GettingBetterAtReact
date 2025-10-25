@@ -22,12 +22,16 @@ function StatusBar(props: StatusBarProps) {
                         </>
 
     return(
-        <section className={clsx(
-            "status-message-con",
-            props.gameWon && "game-won",
-            props.gameOver && "game-lost",
-            props.showFarewell[0] && "wrong-letter"
-        )}>
+        <section 
+            className={clsx(
+                "status-message-con",
+                props.gameWon && "game-won",
+                props.gameOver && "game-lost",
+                props.showFarewell[0] && "wrong-letter"
+                )
+            }
+            aria-live="polite"
+            role="status">
             {props.gameWon ? 
                 winMessage : 
                 props.gameOver ? 
