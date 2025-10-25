@@ -1,0 +1,18 @@
+.keyboard-button-con {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard-button-con > button {
+    background-color: #fcba29;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    border-radius: 4px;
+    border: 1px solid #949494
+}

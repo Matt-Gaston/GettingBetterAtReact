@@ -1,0 +1,18 @@
+.word-display-con {
+    margin:20px;
+    padding:10px;
+    display:flex;
+    justify-content: center;
+}
+
+.word-display-con > span {
+    background-color: #323232;
+    height: 50px;
+    width: 50px;
+    border-bottom: 2px solid #c5c0ad;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:2px;
+    font-size: 1.25rem;
+}
