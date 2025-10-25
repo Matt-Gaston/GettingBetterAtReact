@@ -9,27 +9,36 @@ import KeyboardButtons from "./Components/KeyboardButtons/KeyboardButtons.tsx";
 import NewGameButton from "./Components/NewGameButton/NewGameButton.tsx";
 
 import { languagesData } from "./assets/LanguageListData";
+import { words as wordList } from "./assets/WordList.tsx";
 
 function App() {
-    const [secretWord, setSecretWord] = useState<string>("react")
-    const [guessedletters, setGetessedLetters] = useState<string[]>([])
+    const [secretWord, setSecretWord] = useState<string>(() => getRandomWord())
+    const [guessedletters, setGuessedLetters] = useState<string[]>([])
     const wrong_guesses = guessedletters.filter((letter) => !secretWord.includes(letter)).length
 
     const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     const bGameWon = secretWord.split("").every((letter) => guessedletters.includes(letter))
     const bGameOver = wrong_guesses >= languagesData.length-1
-    const bShowFarewll = !secretWord.includes(guessedletters[guessedletters.length-1]) && guessedletters.length>0
+    const bShowFarewll = !secretWord.includes(guessedletters[guessedletters.length-1]) && guessedletters.length > 0
+
+    console.log(secretWord)
 
 
     function handleGuessedLetter(letter:string){
         if (guessedletters.includes(letter)) { return }
         else {
-            setGetessedLetters((prevLetters) => [...prevLetters, letter])
+            setGuessedLetters((prevLetters) => [...prevLetters, letter])
         }
     }
 
-    function startNewGame(){
+    function getRandomWord(){
+        const randIndex = Math.floor(Math.random() * wordList.length);
+        return wordList[randIndex];
+    }
 
+    function startNewGame(){
+        setGuessedLetters([])
+        setSecretWord(getRandomWord())
     }
 
     return(
@@ -58,7 +67,8 @@ function App() {
 
             <NewGameButton
                 gameWon={bGameWon}
-                gameOver={bGameOver}/>
+                gameOver={bGameOver}
+                handleClick={startNewGame}/>
         </main>
     )
 }
