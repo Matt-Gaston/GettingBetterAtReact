@@ -7,4 +7,5 @@ button.new-game-btn {
     border: 1px solid white;
     margin-top: 40px;
     font-weight: 550;
+    cursor: pointer;
 }

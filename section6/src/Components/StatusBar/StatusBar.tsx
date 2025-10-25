@@ -1,10 +1,13 @@
 import clsx from "clsx";
+
 import "./StatusBar.css";
+import { getFarewellText } from "./utils";
 
 
 interface StatusBarProps{
     gameWon: boolean,
-    gameOver: boolean
+    gameOver: boolean,
+    showFarewell: [bShowFarewll:boolean, language:string]
 }
 
 function StatusBar(props: StatusBarProps) {
@@ -17,17 +20,21 @@ function StatusBar(props: StatusBarProps) {
                             <h2>Game over!</h2>
                             <p>You lose! Better start learning Assembly 😢</p>
                         </>
+
     return(
         <section className={clsx(
             "status-message-con",
             props.gameWon && "game-won",
-            props.gameOver && "game-lost"
+            props.gameOver && "game-lost",
+            props.showFarewell[0] && "wrong-letter"
         )}>
             {props.gameWon ? 
                 winMessage : 
                 props.gameOver ? 
                     loseMessage :
-                    null 
+                    props.showFarewell[0] ? 
+                        <p>{getFarewellText(props.showFarewell[1])}</p> :
+                        null
             }
         </section>
     )

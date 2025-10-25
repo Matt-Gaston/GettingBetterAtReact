@@ -19,3 +19,7 @@
 .status-message-con.game-lost {
     background-color: #ba2a2a;
 }
+
+.status-message-con.wrong-letter {
+    background-color: #7a5ea7;
+}

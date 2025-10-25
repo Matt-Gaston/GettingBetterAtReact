@@ -18,33 +18,47 @@ function App() {
     const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     const bGameWon = secretWord.split("").every((letter) => guessedletters.includes(letter))
     const bGameOver = wrong_guesses >= languagesData.length-1
+    const bShowFarewll = !secretWord.includes(guessedletters[guessedletters.length-1]) && guessedletters.length>0
 
 
     function handleGuessedLetter(letter:string){
-        // console.log(letter)
-        if (bGameOver || bGameWon) {return}
         if (guessedletters.includes(letter)) { return }
         else {
             setGetessedLetters((prevLetters) => [...prevLetters, letter])
         }
     }
 
+    function startNewGame(){
+
+    }
+
     return(
         <main>
             <GameHeader/>
-            <StatusBar gameWon={bGameWon} gameOver={bGameOver}/>
+
+            <StatusBar
+                gameWon={bGameWon}
+                gameOver={bGameOver}
+                showFarewell={[bShowFarewll, languagesData[Math.max(wrong_guesses-1, 0)].name]}/>
+
             <LanguageList
                 languagesData={languagesData}
                 wrong_guesses={wrong_guesses}/>
+
             <WordDisplay 
                 word={secretWord}
                 guessedLetters={guessedletters}/>
-            <KeyboardButtons 
+
+            <KeyboardButtons
+                gameOver={bGameWon||bGameOver}
                 alphabet={alphabet}
                 secretWord={secretWord}
                 guessedLetters={guessedletters}
                 handleLetterClick={handleGuessedLetter}/>
-            <NewGameButton gameWon={bGameWon} gameOver={bGameOver}/>
+
+            <NewGameButton
+                gameWon={bGameWon}
+                gameOver={bGameOver}/>
         </main>
     )
 }

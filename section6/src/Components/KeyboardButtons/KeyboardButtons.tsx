@@ -3,6 +3,7 @@ import { clsx } from "clsx"
 
 
 interface KeyboardButtonsProps{
+    gameOver: boolean
     alphabet: string[],
     secretWord:string,
     guessedLetters: string[],
@@ -15,7 +16,10 @@ function KeyboardButtons(props: KeyboardButtonsProps) {
                                         const bIsGuessed = props.guessedLetters.includes(letter);
                                         const bWordIncludes = props.secretWord.includes(letter);
                                         return(
-                                            <button 
+                                            <button
+                                                disabled={props.gameOver}
+                                                aria-disabled={props.guessedLetters.includes(letter)}
+                                                aria-label={`Letter ${letter}`}
                                                 key={letter}
                                                 onClick={() => props.handleLetterClick(letter)}
                                                 className={
