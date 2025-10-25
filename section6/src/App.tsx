@@ -10,6 +10,7 @@ import NewGameButton from "./Components/NewGameButton/NewGameButton.tsx";
 
 import { languagesData } from "./assets/LanguageListData";
 import { words as wordList } from "./assets/WordList.tsx";
+import Confetti from "react-confetti";
 
 function App() {
     const [secretWord, setSecretWord] = useState<string>(() => getRandomWord())
@@ -43,6 +44,7 @@ function App() {
 
     return(
         <main>
+            {bGameWon? <Confetti/> : null}
             <GameHeader/>
 
             <StatusBar
@@ -55,6 +57,7 @@ function App() {
                 wrong_guesses={wrong_guesses}/>
 
             <WordDisplay 
+                gameOver={bGameOver}
                 word={secretWord}
                 guessedLetters={guessedletters}/>
 
