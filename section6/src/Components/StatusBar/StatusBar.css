@@ -1,5 +1,7 @@
 .status-message-con {
     height: auto;
+    max-width: 1000px;
+    min-width: 400px;
     margin: 15px;
     text-align: center;
     background-color: #10a95b;
